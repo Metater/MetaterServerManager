@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <Reference Include="MetaMitStandard">
-      <HintPath>..\..\..\..\Documents\GitHub\MetaMit\MetaMitStandard\bin\Debug\netstandard2.0\MetaMitStandard.dll</HintPath>
+      <HintPath>..\..\MetaMit\MetaMitStandard\bin\Debug\netstandard2.0\MetaMitStandard.dll</HintPath>
     </Reference>
   </ItemGroup>
 
