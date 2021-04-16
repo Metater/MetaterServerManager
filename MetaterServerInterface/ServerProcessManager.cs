@@ -5,12 +5,12 @@ using System.Diagnostics;
 
 namespace MetaterServerInterface
 {
-    public class ServerProcessInterface
+    public class ServerProcessManager
     {
         ProcessStartInfo processStartInfo;
         Process process;
 
-        public ServerProcessInterface(string pathToProcess)
+        public ServerProcessManager(string pathToProcess)
         {
             processStartInfo = new ProcessStartInfo();
             processStartInfo.FileName = pathToProcess;
@@ -35,12 +35,10 @@ namespace MetaterServerInterface
 
         public void Listen(Action<string> outputDataReceived, Action<string> errorDataReceived)
         {
-            process.OutputDataReceived += (object sender, DataReceivedEventArgs e) =>
-            {
+            process.OutputDataReceived += (object sender, DataReceivedEventArgs e) => {
                 outputDataReceived?.Invoke(e.Data);
             };
-            process.ErrorDataReceived += (object sender, DataReceivedEventArgs e) =>
-            {
+            process.ErrorDataReceived += (object sender, DataReceivedEventArgs e) => {
                 errorDataReceived?.Invoke(e.Data);
             };
             process.BeginOutputReadLine();
